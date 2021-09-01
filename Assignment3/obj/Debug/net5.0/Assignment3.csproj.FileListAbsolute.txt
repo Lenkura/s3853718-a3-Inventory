@@ -149,3 +149,4 @@ D:\Git\s3853718-a3\Assignment3\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\do
 D:\Git\s3853718-a3\Assignment3\obj\Debug\net5.0\Razor\Views\Products\Create.cshtml.g.cs
 D:\Git\s3853718-a3\Assignment3\obj\Debug\net5.0\Razor\Views\Products\Index.cshtml.g.cs
 D:\Git\s3853718-a3\Assignment3\obj\Debug\net5.0\Razor\Views\OrderedProducts\Index.cshtml.g.cs
+D:\Git\s3853718-a3\Assignment3\obj\Debug\net5.0\Razor\Views\DetailedOrders\Index.cshtml.g.cs

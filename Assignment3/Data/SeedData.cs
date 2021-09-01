@@ -60,7 +60,7 @@ namespace Assignment3.Data
                 {
                     Order = order1,
                     Product = widget,
-                    Quantity = 4,
+                    Quantity = 10,
                 },
                 new OrderedProduct
                 {
@@ -72,7 +72,7 @@ namespace Assignment3.Data
                 {
                     Order = order2,
                     Product = sprockets,
-                    Quantity = 2,
+                    Quantity = 3,
                 },
                  new OrderedProduct
                  {

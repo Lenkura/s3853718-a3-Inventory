@@ -17,7 +17,7 @@ namespace Assignment3.Controllers
 
         public DetailedOrdersController(IHttpClientFactory clientFactory) => _clientFactory = clientFactory;
 
-        public async Task<IActionResult> IndexAsync()
+        public async Task<IActionResult> Index()
         {
             var response = await Client.GetAsync("api/Orders");
 
@@ -25,12 +25,6 @@ namespace Assignment3.Controllers
                 throw new Exception();
             var result = await response.Content.ReadAsStringAsync();
             var orders = JsonConvert.DeserializeObject<List<Order>>(result);
-
-            /*response = await Client.GetAsync("api/OrderedProducts");
-            if (!response.IsSuccessStatusCode)
-                throw new Exception();
-            result = await response.Content.ReadAsStringAsync();
-            var orderedProducts = JsonConvert.DeserializeObject<List<OrderedProduct>>(result);*/
 
             List<DetailedOrderViewModel> detailedorders = new();
 

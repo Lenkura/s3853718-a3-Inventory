@@ -1,10 +1,12 @@
 using Assignment3.Data;
+using Assignment3.Models.DataManager;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using System;
 using System.Net.Http.Headers;
 
@@ -29,11 +31,13 @@ namespace Assignment3
                 options.UseLazyLoadingProxies();
             });
 
-            services.AddHttpClient("api", client =>
+            services.AddHttpClient(Options.DefaultName, client =>
             {
                 client.BaseAddress = new Uri("http://localhost:5000");
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             });
+            services.AddScoped<OrderManager>();
+            services.AddScoped<OrderedProductManager>();
 
             services.AddControllersWithViews();
 
