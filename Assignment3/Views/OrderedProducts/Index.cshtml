@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Assignment3.Models.OrderedProduct>
+﻿@model Assignment3.Models.ViewModel.OrderedProductViewModel
 
 @{
     ViewData["Title"] = "Ordered Products";
@@ -7,41 +7,42 @@
 <h1>Ordered Products</h1>
 
 <form asp-controller="OrderedProducts" asp-action="Index">
-    <p>
-        Product Filter: <input type="text" name="SearchString" />
+    <div class="form-group">
+        <p class="control-label">Product Filter:</p>
+        <select name="searchString" asp-items="Model.ProductList"></select>
         <input type="submit" value="Filter" />
-    </p>
+    </div>
 </form>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Order)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Product)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Quantity)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Order.CustomerName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Product.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Quantity)
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderedProductsList[0].Order)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderedProductsList[0].Product)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderedProductsList[0].Quantity)
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderedProductsList)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Order.CustomerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
