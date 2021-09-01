@@ -12,6 +12,7 @@ namespace Assignment3.Models
         [Required]
         [ForeignKey("Order")]
         public int OrderID { get; set; }
+        [Display(Name = "Customer")]
         public virtual Order Order { get; set; }
 
         [Required]
