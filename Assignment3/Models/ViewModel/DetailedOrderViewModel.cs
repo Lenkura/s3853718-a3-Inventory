@@ -8,6 +8,8 @@ namespace Assignment3.Models.ViewModel
 {
     public class DetailedOrderViewModel
     {
+        public int OrderID { get; set; }
+
         [Required]
         [Display(Name = "Order Date")]
         public DateTime OrderDate { get; set; }

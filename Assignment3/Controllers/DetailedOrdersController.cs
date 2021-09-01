@@ -42,6 +42,7 @@ namespace Assignment3.Controllers
                     (
                     new DetailedOrderViewModel
                     {
+                        OrderID = o.OrderID,
                         OrderDate = o.OrderDate,
                         CustomerName = o.CustomerName,
                         DeliveryAddress = o.DeliveryAddress,
