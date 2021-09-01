@@ -20,9 +20,16 @@ namespace Assignment3.Controllers
         }
 
         // GET: OrderedProducts
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString) 
         {
-            var a3Context = _context.OrderedProduct.Include(o => o.Order).Include(o => o.Product);
+            var a3Context = from o in _context.OrderedProduct
+                            select o;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                a3Context = a3Context.Where(n => n.Product.Name.Contains(searchString));
+            }
+
             return View(await a3Context.ToListAsync());
         }
     }
