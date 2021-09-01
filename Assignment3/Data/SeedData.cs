@@ -42,15 +42,16 @@ namespace Assignment3.Data
 
             Order order1 = new()
             {
-                OrderDate = DateTime.ParseExact("01/09/2021 03:45:00 PM", format, null),
+                OrderDate = DateTime.ParseExact("25/08/2021 01:00:00 PM", format, null),
                 CustomerName = "Bob Roberts",
-                DeliveryAddress = "123 Here St Melbourne"
+                DeliveryAddress = "123 Here St Melbourne",
+                DeliveredDate = DateTime.ParseExact("01/09/2021 03:45:00 PM", format, null)
             };
             Order order2 = new()
             {
                 OrderDate = DateTime.ParseExact("01/09/2021 04:00:00 PM", format, null),
                 CustomerName = "Polly Polaroid",
-                DeliveryAddress = "987 There St Melbourne"
+                DeliveryAddress = "987 There St Melbourne"  
             };
 
             context.Order.AddRange(order1, order2);
