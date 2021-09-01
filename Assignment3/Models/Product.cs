@@ -21,7 +21,7 @@ namespace Assignment3.Models
         [Required]
         [Column(TypeName = "money")]
         [DataType(DataType.Currency)]
-        [Range(0.01, double.MaxValue)]
+        [Range(0.01, double.MaxValue, ErrorMessage = "Number must be greater than 0")]
         public decimal Price { get; set; }
     }
 }
