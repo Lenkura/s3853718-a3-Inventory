@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-
+using System.Net.Http.Headers;
 
 namespace Assignment3
 {
@@ -28,6 +28,13 @@ namespace Assignment3
                     Configuration.GetConnectionString("DefaultConnection"));
                 options.UseLazyLoadingProxies();
             });
+
+            services.AddHttpClient("api", client =>
+            {
+                client.BaseAddress = new Uri("http://localhost:5000");
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            });
+
             services.AddControllersWithViews();
 
 
