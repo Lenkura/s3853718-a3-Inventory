@@ -9,13 +9,11 @@ namespace Assignment3.Models
 {
     public class OrderedProduct
     {
-        [Key]
         [Required]
         [ForeignKey("Order")]
         public int OrderID { get; set; }
         public virtual Order Order { get; set; }
 
-        [Key]
         [Required]
         [ForeignKey("Product")]
         public int ProductID { get; set; }

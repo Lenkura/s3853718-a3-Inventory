@@ -18,5 +18,12 @@ namespace Assignment3.Data
         public DbSet<Product> Product { get; set; }
         public DbSet<OrderedProduct> OrderedProduct { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            // Set check constraints (cannot be expressed with data annotations).
+            builder.Entity<OrderedProduct>().HasKey("OrderID");
+            builder.Entity<OrderedProduct>().HasKey("ProductID");
+        }
     }
 }

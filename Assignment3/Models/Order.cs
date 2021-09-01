@@ -14,6 +14,7 @@ namespace Assignment3.Models
         public int OrderID { get; set; }
 
         [Required]
+        [Column(TypeName = "datetime2")]
         public DateTime OrderDate { get; set; }
 
         [Required]
@@ -25,6 +26,7 @@ namespace Assignment3.Models
         [StringLength(200)]
         public string DeliveryAddress { get; set; }
 
+        [Column(TypeName = "datetime2")]
         public DateTime? DeliveredDate { get; set; }
 
     }
